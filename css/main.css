@@ -31,7 +31,7 @@ html, body, main {
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
-    width: 500px;
+    width: 400px;
     border: 2px solid black;
     border-radius: 20px;
     background-color: #cd8126;
@@ -40,15 +40,22 @@ html, body, main {
 }
 
 .option {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+#erreur {
+    color: #fff !important;
+    background-color: red !important;
+    width: 500px;
+    border-radius: 20px;
 }
 
 #motPhrase {
+    display: none;
     background-color: #ffffff;
     border-radius: 20px;
     height: 50px;
     width: 500px;
-    display: table-cell;
     vertical-align: middle;
     color : #cd8126;
     font-size: 30px;
@@ -56,11 +63,14 @@ html, body, main {
 
 #formulaire {
     width: 500px;
+    display: flex; 
+    align-items: center; 
 }
 
 #saisie {
+    display: none;
     margin-top: 10px;
-    width: 340px;
+    width: 255px;
     height: 25px;
     border-radius: 20px;
     padding-left: 10px;
@@ -74,9 +84,19 @@ html, body, main {
     background-color: #fff;
 }
 
-#bouton {
+#boutonRejouer {
     width: 130px;
     height: 30px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+#bouton {
+    display: none;
+    width: 120px;
+    height: 30px;
+    margin-top: 7px;
     margin-left: 5px;
     border-radius: 20px;
     background-color: #fff;
@@ -89,6 +109,7 @@ html, body, main {
     display: table-cell;
     vertical-align: middle;
     color: #fff;
+    display: none;
 }
 
 #footer {
@@ -120,7 +141,7 @@ html, body, main {
     display: none;
 }
 
-  .login-popup {
+  .partager-popup {
     position: relative;
     text-align: center;
     width: 100%;
@@ -159,21 +180,15 @@ html, body, main {
   }
  
   .form-container .btn {
-    background-color: #8ebf42;
+    background-color: #5a811f;
     color: #fff;
     padding: 12px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
     margin-bottom: 10px;
-    opacity: 0.8;
   }
 
   .form-container .cancel {
     background-color: #cc0000;
-  }
-
-  .form-container .btn:hover,
-  .open-button:hover {
-    opacity: 1;
   }
