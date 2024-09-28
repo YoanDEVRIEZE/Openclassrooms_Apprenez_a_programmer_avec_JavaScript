@@ -20,6 +20,7 @@ function lancerLeJeu() {
             score = 0;
             currentIndex = 0;
             document.getElementById("PhrasesMots").textContent = listeChoisie[currentIndex];
+            document.getElementById("saisie").focus();
         }
     });
 }
@@ -45,6 +46,8 @@ function validerLaSaisie() {
     } else {
         document.getElementById("erreur").textContent = "Veuillez saisir du texte !";
     }
+
+    document.getElementById("saisie").focus();
 }
 
 function openForm() {
