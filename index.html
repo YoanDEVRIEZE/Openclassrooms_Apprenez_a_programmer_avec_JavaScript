@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AzerType</title>
+        <link href="css/main.css" rel="stylesheet">
+        <script src="scripts/config.js" defer></script>
+        <script src="scripts/afficherResultat.js" defer></script> 
+        <script src="scripts/validerLaSaisie.js" defer></script> 
+        <script src="scripts/lancerLeJeu.js" defer></script>        
+    </head>
+    <body>
+        <header id="header">
+            <h1>AzerType</h1>
+            <h3>L'application pour écrire plus vite !</h3>
+            <span>AzerType est une application en ligne pour apprendre à taper plus vite au clavier :)</span>
+        </header>
+        <main id="main">
+            <div class="option">
+                <span>Choissisez votre option et taper la proposition qui s'affiche dans le champ en-dessous.</span>
+                <br>
+                <input type="radio" id="mots" name="optionSource" onclick="lancerLeJeu()" value="1"> Mots <input type="radio" id="phrases" name="optionSource" onclick="lancerLeJeu()" value="2"> Phrases
+            </div>
+            <div>
+                <div id="motPhrase"><b id="PhrasesMots"></b></div>
+                <div id="fomulaire"><input type="text" id="saisie"><button id="bouton" onclick="validerLaSaisie()">Valider</button></div>
+                <div id="score"><span><b id="scoreText"></b></span></div>
+            </div>
+        </main>
+        <footer id="footer">
+            <span>© Copyright : OpenClassrooms</span>
+        </footer>
+    </body>
+</html>
