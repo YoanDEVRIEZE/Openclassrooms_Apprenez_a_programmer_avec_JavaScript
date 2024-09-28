@@ -27,10 +27,26 @@
                 <div id="motPhrase"><b id="PhrasesMots"></b></div>
                 <div id="fomulaire"><input type="text" id="saisie"><button id="bouton" onclick="validerLaSaisie()">Valider</button></div>
                 <div id="score"><span><b id="scoreText"></b></span></div>
-            </div>
+            </div>            
         </main>
         <footer id="footer">
             <span>© Copyright : OpenClassrooms</span>
         </footer>
+        <div class="overlay" id="popupOverlay"></div>
+        <div class="form-popup" id="popup-Form">
+            <form action="" class="form-container">
+                <h2>Partager votre score</h2>
+                <label for="email">
+                    <strong>Votre Nom :</strong>
+                </label>
+                <input type="text" placeholder="Votre nom" name="nom" required />
+                <label for="psw">
+                    <strong>Avec qui voulez-vous partager votre score ?</strong>
+                </label>
+                <input type="text" placeholder="nom@domaine.com" name="email" required />
+                <button type="submit" class="btn">Partager</button>
+                <button type="submit" class="btn cancel" onclick="closeForm()">Annuler</button>
+            </form>
+        </div>        
     </body>
 </html>
