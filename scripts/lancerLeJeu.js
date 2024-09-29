@@ -1,85 +1,51 @@
+/*
+* @Function : lancerLeJeu - initialise le jeu AzerType
+* @Return : null
+* @Param : null
+*/
 function lancerLeJeu() {
+    // Récupération des boutons radio pour le choix de la partie. 
     let listeInputRadio = document.querySelectorAll("#main .option input");
 
+    // On cache le score. 
     document.getElementById("score").style.display = "none";
+
+    // On affiche les mots ou les phrases.
     document.getElementById("motPhrase").style.display = "table-cell";
+
+    // On affiche le formulaire. 
     document.getElementById("saisie").style.display = "block";
     document.getElementById("bouton").style.display = "block";
 
+    // Si une partie a déjà été jouée, on retire les éléments de partage et le bouton rejouer. 
     if (document.getElementById("boutonPart") && document.getElementById("boutonRejouer")) {
+        // Récupération du bouton partager.
         let boutonPart = document.getElementById("boutonPart");
+        // Récupération du bouton rejouer. 
         let boutonRejouer = document.getElementById("boutonRejouer");
 
+        // Suppression des boutons. 
         boutonPart.remove();
         boutonRejouer.remove();
     }
 
+    // On attend que l'un des boutons radio du choix de partie soit sélectionné. 
     listeInputRadio.forEach(input => {
         if (input.checked) {
+            // On définit la liste selon le choix. 
             listeChoisie = (input.value === "1") ? listeMots : listePhrases;
+
+            // On réinitialise le score. 
             score = 0;
+
+            // On réinitialise le curseur. 
             currentIndex = 0;
+
+            // On affiche le mot ou la phrase de la liste.
             document.getElementById("PhrasesMots").textContent = listeChoisie[currentIndex];
+
+            // On met un focus sur l'input de saisie.
             document.getElementById("saisie").focus();
         }
     });
-}
-
-function validerLaSaisie() {
-    let saisie = document.getElementById("saisie").value;
-    
-    if (saisie != "") {
-        document.getElementById("erreur").textContent = "";
-        if (saisie == listeChoisie[currentIndex]) {
-            score++;
-        }
-
-        document.getElementById("saisie").value = "";
-        currentIndex++;
-
-        if (currentIndex < listeChoisie.length) {
-            document.getElementById("PhrasesMots").textContent = listeChoisie[currentIndex];
-        } else {
-            document.getElementById("PhrasesMots").textContent = "Fin du jeu !";
-            afficherResultat(score, listeChoisie.length);
-        }
-    } else {
-        document.getElementById("erreur").textContent = "Veuillez saisir du texte !";
-    }
-
-    document.getElementById("saisie").focus();
-}
-
-function openForm() {
-    document.getElementById("popup-Form").style.display = "block";
-    document.getElementById("popupOverlay").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("popup-Form").style.display = "none";
-    document.getElementById("popupOverlay").style.display = "none"; 
-}
-
-function afficherResultat (score, listeChoisie) {    
-    if (!document.getElementById("boutonPart") && !document.getElementById("boutonRejouer")) {
-        document.getElementById("saisie").style.display = "none";
-        document.getElementById("bouton").style.display = "none";
-        document.getElementById("score").style.display = "table-cell";
-        let message = "Votre score est de : "+score + "/" + listeChoisie;
-        document.getElementById("scoreText").textContent = message;
-        let partage = document.getElementById("score");
-        let div = document.createElement("div");
-        div.classList.add("partager");
-        let bouton = document.createElement("button");
-        bouton.id = ("boutonPart");
-        bouton.onclick = openForm;
-        bouton.textContent = "Partager le score";
-        let boutonRejouer = document.createElement("button");
-        boutonRejouer.id = ("boutonRejouer");
-        boutonRejouer.onclick = lancerLeJeu;
-        boutonRejouer.textContent = "Rejouer !";
-        div.appendChild(bouton);
-        div.appendChild(boutonRejouer);
-        partage.appendChild(div);
-    }
 }
