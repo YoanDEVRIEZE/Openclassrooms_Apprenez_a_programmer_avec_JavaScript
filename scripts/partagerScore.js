@@ -16,6 +16,21 @@ function partagerScore() {
         let nom = document.getElementById("nom").value;
         let email = document.getElementById("email").value;
 
+        // On vérifie si l'adresse mail et le nom soit vide et on retourne un message d'érreur. 
+        if (email === "" && nom === "") {
+            document.getElementById("erreurPartage").textContent = "Veuillez compléter tous les champs !";
+            return;
+        }
+
+        // On vérifie si l'adresse mail n'est pas conforme et on retourne un message d'erreur. 
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            document.getElementById("erreurPartage").textContent = "Veuillez saisir une adresse email valide !";
+            return;
+        }
+
+        // On réinitialise le message d'erreur. 
+        document.getElementById("erreurPartage").textContent = "";
+
         // On définit le sujet du mail. 
         let sujet = "Partage du score AzerType";
 

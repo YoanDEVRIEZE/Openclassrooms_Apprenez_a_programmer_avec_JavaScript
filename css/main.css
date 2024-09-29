@@ -50,6 +50,14 @@ html, body, main {
     border-radius: 20px;
 }
 
+#erreurPartage {
+    color: #fff !important;
+    background-color: red !important;
+    width: 300px;
+    border-radius: 20px;
+    text-align: center;
+}
+
 #motPhrase {
     display: none;
     background-color: #ffffff;
